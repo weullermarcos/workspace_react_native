@@ -7,12 +7,28 @@
  import React, {Component} from 'react';
  import {View, Text, Image} from 'react-native';
 
- export default class ProjetoBasico extends Component{
+ // Criando um componente para imagem - 
+ // Um componente basicamente e uma classe
+ class Imagem extends Component{
 
   render(){
 
     // criando uma variavel
-    let imagem = {uri: 'https://www.google.com.br/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png'};
+    let imagem = {uri: 'https://www.google.com/logos/'+this.props.nome+'.jpg'};
+
+    return(
+
+      <Image source={imagem} 
+             style={{width: parseInt(this.props.largura), height: parseInt(this.props.altura)}} 
+             resizeMode='stretch'/>
+    );
+      
+  }
+ }
+
+ export default class ProjetoBasico extends Component{
+
+  render(){
 
     return(
 
@@ -25,8 +41,8 @@
             Ola Mundo 
         </Text>
 
-        <Image source={imagem}
-               style={{height: 300, width: 300}}/>
+        <Imagem nome='google' largura='400' altura='300'/>
+
       </View>
 
     );
