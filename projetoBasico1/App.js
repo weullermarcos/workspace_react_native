@@ -7,7 +7,7 @@
  import React, {Component} from 'react';
  import {View, Text, Image} from 'react-native';
 
- // Criando um componente para imagem - 
+ // Criando um componente para imagem 
  // Um componente basicamente e uma classe
  class Imagem extends Component{
 
@@ -17,12 +17,59 @@
     let imagem = {uri: 'https://www.google.com/logos/'+this.props.nome+'.jpg'};
 
     return(
-
       <Image source={imagem} 
              style={{width: parseInt(this.props.largura), height: parseInt(this.props.altura)}} 
              resizeMode='stretch'/>
     );
-      
+  }
+ }
+
+ class Janta extends Component{
+
+  // criando um construtor para a classe janta
+  constructor(props){
+
+    // tornando a props usuau em todos os lugares do componente
+    super(props);
+
+    this.state = {comida: props.comida};
+    var comidas = ['pizza', 'pequi', 'arroz', 'feijao', 'macarrao'];
+
+    // criando um intervalo de mudanca a cada 1 segundo
+    setInterval(()=>{
+
+      this.setState(previousState => {
+
+        // gerando um numero aleatorio baseado na quantidade de comidas 
+        var n = Math.floor(Math.random() * comidas.length);
+
+        // retorna uma comida aleatoria baseada no n gerado
+        return {comida: comidas[n]};
+
+      });
+
+    }, 1000);
+
+  }
+
+  render(){
+
+    return(
+
+      <View> 
+        <Text style={{textAlign: 'center', 
+                      marginTop: 20,
+                      fontWeight: 'bold', 
+                      fontSize: 20,
+                      color: 'red'}}> 
+          Vc vai jantar: 
+        </Text>
+        <Text style={{textAlign: 'center', fontSize: 20}}> 
+          {this.state.comida}
+        </Text>
+      </View>
+
+    );
   }
  }
 
@@ -33,13 +80,8 @@
     return(
 
       <View> 
-        <Text> Ola Mundo </Text>
-        <Text> Ola Mundo </Text>
-        <Text style={{ fontSize: 25, 
-                       color:'red',
-                       margin: 20}}> 
-            Ola Mundo 
-        </Text>
+
+        <Janta comida='mamao'/>
 
         <Imagem nome='google' largura='400' altura='300'/>
 
