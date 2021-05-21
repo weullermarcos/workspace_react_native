@@ -92,7 +92,12 @@
           <View style={{flex: 1, backgroundColor: 'red'}}></View>
           <View style={{flex: 1, backgroundColor: 'blue'}}></View>
           <View style={{flex: 1, backgroundColor: 'pink'}}></View>
-          <View style={{flex: 3, backgroundColor: 'green'}}></View>
+          
+          <View style={{flex: 3, backgroundColor: 'green', flexDirection:'row'}}>
+            <View style={{flex: 1, backgroundColor: 'red'}}></View>
+            <View style={{flex: 1, backgroundColor: 'blue'}}></View>
+            <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
+          </View>
 
         </View>
 
