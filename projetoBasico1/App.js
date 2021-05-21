@@ -5,7 +5,7 @@
 
 
  import React, {Component} from 'react';
- import {View, Text, Image} from 'react-native';
+ import {View, Text, Image, StyleSheet} from 'react-native';
 
  // Criando um componente para imagem 
  // Um componente basicamente e uma classe
@@ -48,7 +48,7 @@
 
       });
 
-    }, 1000);
+    }, 3000);
 
   }
 
@@ -57,11 +57,7 @@
     return(
 
       <View> 
-        <Text style={{textAlign: 'center', 
-                      marginTop: 20,
-                      fontWeight: 'bold', 
-                      fontSize: 20,
-                      color: 'red'}}> 
+        <Text style={styles.texto1}> 
           Vc vai jantar: 
         </Text>
         <Text style={{textAlign: 'center', fontSize: 20}}> 
@@ -85,8 +81,31 @@
 
         <Imagem nome='google' largura='400' altura='300'/>
 
+        <Text style={[styles.texto1, styles.texto2]}>
+          Texto massa 
+        </Text>
+
       </View>
 
     );
   }
  }
+
+ const styles = StyleSheet.create({
+
+  texto1:{
+    textAlign: 'center', 
+    marginTop: 20,
+    fontWeight: 'bold', 
+    fontSize: 20,
+    color: 'red'
+  },
+
+  texto2:{
+    marginTop: 10,
+    fontWeight: '400', 
+    fontSize: 30,
+    color: '#00FF00'
+  }
+
+ });
