@@ -18,7 +18,9 @@
 
     return(
       <Image source={imagem} 
-             style={{width: parseInt(this.props.largura), height: parseInt(this.props.altura)}} 
+             style={{width: parseInt(this.props.largura), 
+                     height: parseInt(this.props.altura), 
+                     alignSelf: 'center'}} 
              resizeMode='stretch'/>
     );
   }
@@ -79,11 +81,20 @@
 
         <Janta comida='mamao'/>
 
-        <Imagem nome='google' largura='400' altura='300'/>
+        <Imagem nome='google' largura='200' altura='100'/>
 
         <Text style={[styles.texto1, styles.texto2]}>
           Texto massa 
         </Text>
+
+        <View style={{height: 500, backgroundColor: '#000000'}}> 
+
+          <View style={{flex: 1, backgroundColor: 'red'}}></View>
+          <View style={{flex: 1, backgroundColor: 'blue'}}></View>
+          <View style={{flex: 1, backgroundColor: 'pink'}}></View>
+          <View style={{flex: 3, backgroundColor: 'green'}}></View>
+
+        </View>
 
       </View>
 
@@ -105,7 +116,8 @@
     marginTop: 10,
     fontWeight: '400', 
     fontSize: 30,
-    color: '#00FF00'
+    color: '#00FF00',
+    paddingBottom: 10
   }
 
  });
