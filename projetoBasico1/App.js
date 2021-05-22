@@ -5,7 +5,7 @@
 
 
  import React, {Component} from 'react';
- import {View, Text, Image, StyleSheet} from 'react-native';
+ import {View, Text, Image, StyleSheet, TextInput, Button} from 'react-native';
 
  // Criando um componente para imagem 
  // Um componente basicamente e uma classe
@@ -73,6 +73,30 @@
 
  export default class ProjetoBasico extends Component{
 
+  constructor(props){
+
+    super(props);
+    this.state = {texto: ''};
+
+    // associando a funcao ao componente
+    this.mudarTexto = this.mudarTexto.bind(this);
+
+  }
+
+  mudarTexto(t){
+
+    let s = this.state;
+
+    if(t.length > 0){
+      s.texto = 'Ola, ' + t;
+    }
+    else{
+      s.texto = '';
+    }
+
+    this.setState(s);
+  }
+
   render(){
 
     return(
@@ -81,14 +105,17 @@
 
         <Janta comida='mamao'/>
 
-        <Imagem nome='google' largura='200' altura='100'/>
+        <Imagem nome='google' largura='100' altura='50'/>
 
         <Text style={[styles.texto1, styles.texto2]}>
           Texto massa 
         </Text>
 
-        <View style={{height: 500, backgroundColor: '#000000'}}> 
+        <TextInput style={styles.input} placeholder='Seu nome' onChangeText={this.mudarTexto}/>
+        <Text style={styles.texto1}>{this.state.texto}</Text>
 
+
+        <View style={{height: 300, backgroundColor: '#000000'}}> 
           <View style={{flex: 1, backgroundColor: 'red'}}></View>
           <View style={{flex: 1, backgroundColor: 'blue'}}></View>
           <View style={{flex: 1, backgroundColor: 'pink'}}></View>
@@ -98,7 +125,6 @@
             <View style={{flex: 1, backgroundColor: 'blue'}}></View>
             <View style={{flex: 1, backgroundColor: 'transparent'}}></View>
           </View>
-
         </View>
 
       </View>
@@ -123,6 +149,14 @@
     fontSize: 30,
     color: '#00FF00',
     paddingBottom: 10
+  },
+
+  input:{
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#000000',
+    margin: 10,
+    padding: 10
   }
 
  });
